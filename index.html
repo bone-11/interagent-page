@@ -255,7 +255,7 @@
       <div class="column is-four-fifths">
         <div class="columns is-centered">
           <video id="teaser" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/TeaserDemo/demo2_720p.mp4"
+            <source src="./static/TeaserDemo/demo-music.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -266,19 +266,9 @@
         <h2 class="title is-3" style="color: white;">Abstract</h2>
         <div class="content has-text-justified">
           <p style="color: white;">
-            To address key limitations in human-object interaction (HOI) video generation—specifically
-             the reliance on curated motion data, limited generalization to novel objects/scenarios, and
-             restricted accessibility—we introduce HunyuanVideo-HOMA, a weakly conditioned multimodal-driven 
-             framework. HunyuanVideo-HOMA enhances controllability and reduces dependency on precise inputs 
-             through sparse, decoupled motion guidance. It encodes appearance and motion signals into the dual 
-             input space of a multimodal diffusion transformer (MMDiT), fusing them within a shared context 
-             space to synthesize temporally consistent and physically plausible interactions. To optimize 
-             training, we integrate a parameter-space HOI adapter initialized from pretrained MMDiT weights, 
-             preserving prior knowledge while enabling efficient adaptation, and a facial cross-attention 
-             adapter for anatomically accurate audio-driven lip synchronization. Extensive experiments confirm 
-             state-of-the-art performance in interaction naturalness and generalization under weak supervision. 
-             Finally, HunyuanVideo-HOMA demonstrates versatility in text-conditioned generation and interactive 
-             object manipulation, supported by a user-friendly demo interface.
+            Recent advances in video diffusion models have spurred interest in human–object interaction (HOI) video generation, which demands fine-grained reasoning over interaction logic beyond single-subject animation. Existing methods rely heavily on explicit motion control, limiting scalability and generalization across diverse objects and interactions.
+            We propose InterAgent, a thinking-before-generation framework for text-driven HOI video generation that bridges the gap between high-level intent and physical execution through explicit multi-agent reasoning over perception, interaction, and motion planning. To further enhance interaction modeling, we introduce an implicit text–motion alignment strategy that distills text-to-motion priors into the video diffusion model, enabling robust HOI synthesis without explicit motion inputs at inference.
+            Experiments show that InterAgent significantly improves interaction naturalness, object appearance preservation, and adherence to complex textual instructions across challenging object-centric scenarios such as wearing and riding.
         </div>
 
         <!-- <div class="has-text-centered" style="margin-top: 2em;">
@@ -294,7 +284,7 @@
 </section>
 
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -311,24 +301,40 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3" style="color: white;">Method Framework</h2>
-        <div>
-          <h2 class="content has-text-justified" style="color: white; width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);">
-            Architecture of HunyuanVideo-HOMA. HunyuanVideo-HOMA is built upon the multi-modal diffusion
-            transformer (MMDiT) and is composed of context fusion, HOI adapter, and audio adapter.
-          </h2>
-        </div>
+
         <div class="has-text-centered" style="margin-top: 2em;">
           <figure class="image" style="display: block; position: relative; width: 100%; overflow: visible;">
-            <img src="./static/fig/method.png" alt="Descriptive alt text" style="width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);">
+            <img src="./static/fig/method.jpg" alt="Descriptive alt text" style="width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);">
           </figure>
         </div>
+        <br/>
+        <div>
+          <!-- <h2 class="content has-text-justified" style="color: white; width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);"> -->
+          <h2 class="content has-text-justified"
+            style="
+              color: rgba(235, 235, 235, 0.85);
+              width: 140%;
+              max-width: 900px;
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+              font-weight: 400;
+              line-height: 1.65;
+              letter-spacing: 0.3px;
+              text-shadow: 0 0 6px rgba(255,255,255,0.15);
+            ">
+            InterAgent consists of two core components: agent-based HOI reasoning and motion-free HOI video generation. 
+            The former employs a multi-agent architecture to infer structured and physically plausible HOI action plans from textual and image inputs, while the latter enhances text controllability by aligning video representations with implicit text-to-motion features during training, enabling robust text-driven HOI synthesis without explicit motion inputs at inference time.          
+          </h2>
+        </div>
+
       </div>
     </div>
   </div>

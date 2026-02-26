@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <style> .results-carousel .item img { width: 512px; height: 512px; } </style>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="InterAgent: Multi-Agent Reasoning for Human-Object-Interaction Video Generation via Implicit Representation Alignment">
+  <meta name="keywords" content="Video Generation, Camera Motion transfer, Camera-Object Motion, Disentanglement">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title style="color: white;">InterAgent: Multi-Agent Reasoning for Human-Object-Interaction Video Generation via Implicit Representation Alignment</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+
+  <style>
+    .rainbow-text {
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  </style>
+
+</head>
+
+
+
+<body style="background-color: black;">
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title" style="color: white;"><span class="rainbow-text" style="font-size: 60px;">InterAgent</span> <br> 
+                <span style="font-size: 40px;"> Multi-Agent Reasoning for Human-Object-Interaction Video Generation via Implicit Representation Alignment</span> </h1>
+
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block" >
+                <a>Hunyuan Team</a><sup></sup></span>
+              <span class="author-block">
+                <a href="https://sjtuplayer.github.io/">Ziyao Huang</a><sup>1*</sup>,</span>
+              <span class="author-block">
+                <a>Zixiang Zhou</a><sup>2*</sup>,</span>
+              <span class="author-block">
+                <a >Juan Cao</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a>Yifeng Ma</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Yi Chen</a><sup>2</sup>,
+              </span>
+              <br />
+              <span class="author-block">
+                <a >Zejing Rao</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a>Zhiyong Xu</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a >Hongmei Wang</a><sup>2</sup>
+              </span>
+              <span class="author-block">
+                <a >Qin Lin</a><sup>2</sup>
+              </span>
+              <span class="author-block">
+                <a >Yuan Zhou</a><sup>2</sup>
+              </span>
+              <span class="author-block">
+                <a >Qinglin Lu</a><sup>2</sup>
+              </span>
+              <span class="author-block">
+                <a >Fan Tang</a><sup>1#</sup>
+              </span>
+            </div>
+   -->
+  
+            <!-- <div class="column has-text-centered">
+              <div class="publication-links"> -->
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://dl.acm.org/doi/abs/10.1145/3757377.3763861"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2506.08797"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/bone-11/homa"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span> -->
+                <!-- Dataset Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span> -->
+              <!-- </div> -->
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- <section class="section" id="teaser">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <div class="column has-text-centered">
+        <div class="content">
+          <h3 class="title is-4">
+            Camera Motion Control
+          </h3>
+          <div class="item">
+<iframe width="1024" height="576" src="https://www.youtube.com/embed/o3Fk4RgWC4A?si=RXqn2DaPy_4QfQYC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</section> -->
+
+<!-- 单独放视频部分 -->
+<section class="teaser-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <style class="video-style1">
+          .videos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+          }
+
+          .videos-container-3x2 .video-item {
+            flex: 0 0 calc(33.333% - 7px);
+            box-sizing: border-box;
+          }
+
+          .video-item video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            background-color: #000;
+          }
+        </style>
+
+        <!-- <div class="videos-container videos-container-3x2">
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/TeaserDemo/此生约定-1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/TeaserDemo/潮起潮落-纯绿.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/TeaserDemo/哪吒-校园.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/TeaserDemo/唐伯虎.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/TeaserDemo/哪吒1.mp4" type="video/mp4">
+            </video>
+          </div>
+
+
+
+
+
+
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/TeaserDemo/circle-of-life-1.mp4" type="video/mp4">
+            </video>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="columns is-centered">
+          <video id="teaser" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/TeaserDemo/demo-music.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+
+
+        <h2 class="title is-3" style="color: white;">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="color: white;">
+            Recent advances in video diffusion models have spurred interest in human–object interaction (HOI) video generation, which demands fine-grained reasoning over interaction logic beyond single-subject animation. Existing methods rely heavily on explicit motion control, limiting scalability and generalization across diverse objects and interactions.
+            We propose InterAgent, a thinking-before-generation framework for text-driven HOI video generation that bridges the gap between high-level intent and physical execution through explicit multi-agent reasoning over perception, interaction, and motion planning. To further enhance interaction modeling, we introduce an implicit text–motion alignment strategy that distills text-to-motion priors into the video diffusion model, enabling robust HOI synthesis without explicit motion inputs at inference.
+            Experiments show that InterAgent significantly improves interaction naturalness, object appearance preservation, and adherence to complex textual instructions across challenging object-centric scenarios such as wearing and riding.
+        </div>
+
+        <!-- <div class="has-text-centered" style="margin-top: 2em;">
+          <figure class="image" style="display: block; position: relative; width: 100%; overflow: visible;">
+            <img src="./static/fig/teaser.png" alt="Descriptive alt text" style="width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);">
+          </figure>
+        </div> -->
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: white;">Weak Condition for HOI</h2>
+        <div>
+          <h2 class="content has-text-justified" style="color: white;">
+            We explore a weak HOI condition, where each component of the human pose can be optionally removed, 
+            and the object’s motion is a sequence of dots indicating the center points of its trajectory.
+          </h2>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <img src="./static/fig/condition.png" alt="静态图" width="950">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: white;">Method Framework</h2>
+
+        <div class="has-text-centered" style="margin-top: 2em;">
+          <figure class="image" style="display: block; position: relative; width: 100%; overflow: visible;">
+            <img src="./static/fig/method.jpg" alt="Descriptive alt text" style="width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);">
+          </figure>
+        </div>
+        <br/>
+        <div>
+          <!-- <h2 class="content has-text-justified" style="color: white; width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);"> -->
+          <h2 class="content has-text-justified"
+            style="
+              color: rgba(235, 235, 235, 0.85);
+              width: 140%;
+              max-width: 900px;
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+              font-weight: 400;
+              line-height: 1.65;
+              letter-spacing: 0.3px;
+              text-shadow: 0 0 6px rgba(255,255,255,0.15);
+            ">
+            InterAgent consists of two core components: agent-based HOI reasoning and motion-free HOI video generation. 
+            The former employs a multi-agent architecture to infer structured and physically plausible HOI action plans from textual and image inputs, while the latter enhances text controllability by aligning video representations with implicit text-to-motion features during training, enabling robust text-driven HOI synthesis without explicit motion inputs at inference time.          
+          </h2>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="color: white;">Comparisons with SOTAs</h2>
+        <div style="display: flex; align-items: center;">
+          <img src="./static/gifs/poses.gif" alt="动图" width="950">
+        </div>
+
+        <div>
+          <h2 class="content has-text-justified" style="color: white; width: 100%; max-width: 950px; position: relative; left: 50%; transform: translateX(-50%);">
+            We demonstrate the controllability of our method across a variety of weak human pose scenarios. 
+            The results show that our framework effectively 
+            adapts to diverse poses while maintaining coherent object interactions and consistent appearance.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="color: white;">Influence of Agents</h2>
+        <div style="display: flex; align-items: center;">
+          <img src="./static/gifs/text.gif" alt="动图" width="950">
+        </div>
+
+        <div>
+          <h2 class="content has-text-justified" style="color: white; width: 100%; max-width: 950px; position: relative; left: 50%; transform: translateX(-50%);">
+            We explore the impact of combining weak pose guidance with text-based control.
+            The results demonstrate that our method can effectively integrate minimal pose 
+            information with textual semantics to generate coherent and semantically aligned motions.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <div class="container has-text-centered">
+  <p><strong>Our demo is divided into two parts: firstly, <a href="#experimental-results" class="highlighted-link">all our experimental results</a>, and secondly, we provide a <a href="#gallery" class="highlighted-link">gallery to showcase various effects</a>.</strong></p>
+</div> -->
+
+
+<!-- <section class="demo4-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+
+      <div class="column is-full">
+
+        <div class="has-text-centered">
+          <h2 class="title is-4" style="color: white;">
+            Results with various objects
+          </h2>
+        </div>
+
+        <div style="height: 20px;"></div>
+
+        <p style="color: white;">
+        </p>
+
+        <div style="height: 20px;"></div>
+
+        <style class="video-style2">
+          .videos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+          }
+
+          .videos-container-2 .video-item {
+            flex: 0 0 calc(50% - 7.5px);
+            box-sizing: border-box;
+          }
+
+          .video-item video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            background-color: #000;
+          }
+        </style>
+
+        <div class="videos-container videos-container-2">
+
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open2.mp4" type="video/mp4">
+            </video>
+          </div>
+
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open3.mp4" type="video/mp4">
+            </video>
+          </div>
+
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open4.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open5.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open6.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open7.mp4" type="video/mp4">
+            </video>
+          </div>
+
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open8.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open9.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/open1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="has-text-centered">
+        <h2 class="title is-4" style="color: white;">
+          Full body human-object interaction results  
+
+        </h2>
+      </div>
+
+      <div style="height: 20px;"></div>
+
+      <p style="color: white;">
+      </p>
+
+      <div style="height: 20px;"></div>
+
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="./static/demo/open5.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="./static/demo/open3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="./static/demo/open4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="./static/demo/open6.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="./static/demo/open2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <!-- <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop height="100%">\
+            <source src="./static/demo/open7.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video7">
+          <video poster="" id="video7" autoplay controls muted loop height="100%">\
+            <source src="./static/demo/open8.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video8">
+          <video poster="" id="video8" autoplay controls muted loop height="100%">\
+            <source src="./static/demo/open9.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop height="100%">\
+            <source src="./static/demo/open1.mp4"
+            type="video/mp4">
+          </video>
+        </div> -->
+      </div>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="./static/demo/open7.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video7">
+          <video poster="" id="video7" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="./static/demo/open8.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video8">
+          <video poster="" id="video8" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="./static/demo/open9.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="./static/demo/open1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="./static/demo/open1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+
+      
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero is-small">
+  <div class="hero-body"> 
+    <div class="container">
+      <div class="has-text-centered">
+        <h2 class="title is-4" style="color: white;">
+          Results with various objects
+        </h2>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel" style="width:70%;height:70%;object-fit: fill;object-fit: contain;object-fit: scale-down;margin: auto;">
+        <div id="slider9965b56b-c194-47ea-928a-d5104b999d1c" class="slider" tabindex="0">
+            <div class="slider-container" style="opacity: 1; width: 8469px; transition: none; transform: translate3d(0px, 0px, 0px);">
+              <div class="slider-item" data-slider-index="0" data-cloned="true" style="width: 941px;">
+                <div class="item item-video1">
+                  <video poster="" id="" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open2.mp4" type="video/mp4">
+                  </video>
+                </div></div>
+              <div class="slider-item" data-slider-index="1" data-cloned="true" style="width: 941px;">
+                  <div class="item item-video2">
+                  <video poster="" id="" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open3.mp4" type="video/mp4">
+                  </video>
+                </div></div>
+              <div class="slider-item" data-slider-index="2" style="width: 941px;">
+                <div class="item item-video3">
+                  <video poster="" id="video1" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open4.mp4" type="video/mp4">
+                  </video>
+                </div></div>
+              <div class="slider-item" data-slider-index="3" style="width: 941px;">
+                <div class="item item-video4">
+                  <video poster="" id="video2" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open5.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="slider-item" data-slider-index="4" data-cloned="true" style="width: 941px;">
+                <div class="item item-video5">
+                  <video poster="" id="" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open6.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="slider-item" data-slider-index="5" data-cloned="true" style="width: 941px;">
+                <div class="item item-video6">
+                  <video poster="" id="" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open7.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="slider-item" data-slider-index="6" data-cloned="true" style="width: 941px;">
+                <div class="item item-video7">
+                  <video poster="" id="" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open8.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="slider-item" data-slider-index="7" data-cloned="true" style="width: 941px;">
+                <div class="item item-video8">
+                  <video poster="" id="" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open9.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="slider-item" data-slider-index="8" data-cloned="true" style="width: 941px;">
+                <div class="item item-video9">
+                  <video poster="" id="" autoplay="" controls="" muted="" loop="" height="100%">
+                    <source src="./static/demo/open1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="slider-navigation-previous">
+              <svg viewBox="0 0 50 80" xml:space="preserve">
+                <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+              </svg>
+            </div>
+            <div class="slider-navigation-next">
+              <svg viewBox="0 0 50 80" xml:space="preserve">
+              <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+              </svg>
+            </div>
+            <div class="slider-pagination"><div class="slider-page is-active" data-index="0"></div><div class="slider-page" data-index="1"></div></div>
+            
+            <div class="slider-pagination">
+              <div class="slider-page" data-index="0"></div>
+              <div class="slider-page" data-index="1"></div>
+              <div class="slider-page" data-index="2"></div>
+              <div class="slider-page" data-index="3"></div>
+              <div class="slider-page" data-index="4"></div>
+              <div class="slider-page" data-index="5"></div>
+              <div class="slider-page" data-index="6"></div>
+              <div class="slider-page" data-index="7"></div>
+              <div class="slider-page" data-index="8"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="demo5-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+
+      <div class="column is-full">
+
+        <!-- 居中 -->
+        <div class="has-text-centered">
+          <h2 class="title is-4" style="color: white;">
+            Multiple actions results
+
+          </h2>
+        </div>
+
+        <!-- 加个间距 -->
+        <div style="height: 20px;"></div>
+
+        <p style="color: white;">
+          <!-- We find that the temporal attention maps determine the generated video motions. By switching the temporal attention maps between the two videos in the first row, we
+          have the results in the second row, whose videos motions are totally swithed. -->
+        </p>
+
+        <!-- 加个间距 -->
+        <div style="height: 20px;"></div>
+
+        <style class="video-style2">
+          .videos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+          }
+
+          .videos-container-4x2 .video-item {
+            flex: 0 0 calc(50% - 7.5px);
+            box-sizing: border-box;
+          }
+
+          .video-item video {
+            width: 25%;
+            height: auto;
+            border-radius: 8px;
+            background-color: #000;
+          }
+        </style>
+
+        <div class="videos-container videos-container-4x2">
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/non-rigid/FO1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/non-rigid/FO2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/non-rigid/FO3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/non-rigid/selfeval_v1_img_78_audio.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="demo6-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+
+      <div class="column is-full">
+
+        <!-- 居中 -->
+        <div class="has-text-centered">
+          <h2 class="title is-4" style="color: white;">
+            Wearing results
+          </h2>
+        </div>
+
+        <!-- 加个间距 -->
+        <div style="height: 20px;"></div>
+
+        <p style="color: white;">
+          We provide an interactive web demo that allows users to intuitively define human-object interactions
+           by manually dragging the human pose and object position. This interactive tool grants the model adaptive
+            freedom to resolve ambiguities, bridging the gap between artistic intent and generative feasibility.
+        </p>
+
+        <!-- 加个间距 -->
+        <div style="height: 20px;"></div>
+
+        <style class="video-style3">
+          .videos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+          }
+
+          .videos-container-1 .video-item {
+            flex: 0 0 calc(100% - 7.5px);
+            box-sizing: border-box;
+          }
+
+          .video-item video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            background-color: #000;
+          }
+        </style>
+
+        <div class="videos-container videos-container-1">
+          <div class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/demo/webui.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            We borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> for our website.
+            We sincerely appreciate Nerfies authors for their awesome templates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -45,29 +45,29 @@
 
   <style>
     .rainbow-text {
-      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      background: linear-gradient(135deg, #a78bfa 0%, #6366f1 25%, #3b82f6 50%, #06b6d4 75%, #10b981 100%);
       -webkit-background-clip: text;
-      color: transparent;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   </style>
 
 </head>
 
-
-
-<body style="background-color: black;">
+<body>
 
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-3 publication-title" style="color: white;"><span class="rainbow-text" style="font-size: 60px;">InterAgent</span> <br> 
-                <span style="font-size: 40px;"> Multi-Agent Reasoning for Human-Object-Interaction Video Generation via Implicit Representation Alignment</span> </h1>
+            <h1 class="title is-3 publication-title">
+              <span class="rainbow-text" style="font-size: 4.5rem; font-weight: 700;">InterAgent</span>
+              <br>
+              <span style="font-size: 2rem; color: var(--text-secondary); font-weight: 500; letter-spacing: 0.01em;">Multi-Agent Reasoning for Human-Object-Interaction Video Generation via Implicit Representation Alignment</span>
+            </h1>
 
             <!-- <div class="is-size-5 publication-authors">
-              <span class="author-block" >
-                <a>Hunyuan Team</a><sup></sup></span>
               <span class="author-block">
                 <a href="https://sjtuplayer.github.io/">Ziyao Huang</a><sup>1*</sup>,</span>
               <span class="author-block">
@@ -103,8 +103,8 @@
               <span class="author-block">
                 <a >Fan Tang</a><sup>1#</sup>
               </span>
-            </div>
-   -->
+            </div> -->
+  
   
             <!-- <div class="column has-text-centered">
               <div class="publication-links"> -->
@@ -175,7 +175,7 @@
   </div>
 </section> -->
 
-<!-- 单独放视频部分 -->
+<!-- 单独放视频部分
 <section class="teaser-section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
@@ -201,7 +201,7 @@
           }
         </style>
 
-        <!-- <div class="videos-container videos-container-3x2">
+        <div class="videos-container videos-container-3x2">
           <div class="video-item">
             <video autoplay controls muted loop playsinline>
               <source src="./static/TeaserDemo/此生约定-1.mp4" type="video/mp4">
@@ -241,11 +241,11 @@
               <source src="./static/TeaserDemo/circle-of-life-1.mp4" type="video/mp4">
             </video>
           </div> -->
-        </div>
+        <!-- </div>
       </div>
     </div>
   </div>
-</section>
+</section> --> 
 
 
 <section class="section">
@@ -253,19 +253,18 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <div class="columns is-centered">
-          <video id="teaser" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/TeaserDemo/demo-music.mp4"
-                    type="video/mp4">
-          </video>
+        <!-- <div class="columns is-centered" style="margin-bottom: 2.5rem;"> -->
+        <div class="columns is-centered" style="margin-bottom: 0rem;">
+          <div class="column is-full" style="max-width: 900px; margin: 0 auto;">
+            <video id="teaser" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/TeaserDemo/demo-music_comp.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
 
-
-
-
-        <h2 class="title is-3" style="color: white;">Abstract</h2>
+        <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p style="color: white;">
+          <p>
             Recent advances in video diffusion models have spurred interest in human–object interaction (HOI) video generation, which demands fine-grained reasoning over interaction logic beyond single-subject animation. Existing methods rely heavily on explicit motion control, limiting scalability and generalization across diverse objects and interactions.
             We propose InterAgent, a thinking-before-generation framework for text-driven HOI video generation that bridges the gap between high-level intent and physical execution through explicit multi-agent reasoning over perception, interaction, and motion planning. To further enhance interaction modeling, we introduce an implicit text–motion alignment strategy that distills text-to-motion priors into the video diffusion model, enabling robust HOI synthesis without explicit motion inputs at inference.
             Experiments show that InterAgent significantly improves interaction naturalness, object appearance preservation, and adherence to complex textual instructions across challenging object-centric scenarios such as wearing and riding.
@@ -307,32 +306,15 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3" style="color: white;">Method Framework</h2>
+        <h2 class="title is-3">Method Framework</h2>
 
         <div class="has-text-centered" style="margin-top: 2em;">
           <figure class="image" style="display: block; position: relative; width: 100%; overflow: visible;">
             <img src="./static/fig/method.jpg" alt="Descriptive alt text" style="width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);">
           </figure>
         </div>
-        <br/>
-        <div>
-          <!-- <h2 class="content has-text-justified" style="color: white; width: 140%; max-width: 900px; position: relative; left: 50%; transform: translateX(-50%);"> -->
-          <h2 class="content has-text-justified"
-            style="
-              color: rgba(235, 235, 235, 0.85);
-              width: 140%;
-              max-width: 900px;
-              position: relative;
-              left: 50%;
-              transform: translateX(-50%);
-              font-weight: 400;
-              line-height: 1.65;
-              letter-spacing: 0.3px;
-              text-shadow: 0 0 6px rgba(255,255,255,0.15);
-            ">
-            InterAgent consists of two core components: agent-based HOI reasoning and motion-free HOI video generation. 
-            The former employs a multi-agent architecture to infer structured and physically plausible HOI action plans from textual and image inputs, while the latter enhances text controllability by aligning video representations with implicit text-to-motion features during training, enabling robust text-driven HOI synthesis without explicit motion inputs at inference time.          
-          </h2>
+        <div class="content has-text-justified" style="max-width: 900px; margin: 1.5rem auto 0;">
+          <p>InterAgent consists of two core components: agent-based HOI reasoning and motion-free HOI video generation. The former employs a multi-agent architecture to infer structured and physically plausible HOI action plans from textual and image inputs, while the latter enhances text controllability by aligning video representations with implicit text-to-motion features during training, enabling robust text-driven HOI synthesis without explicit motion inputs at inference time.</p>
         </div>
 
       </div>
@@ -345,17 +327,13 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-4" style="color: white;">Comparisons with SOTAs</h2>
-        <div style="display: flex; align-items: center;">
-          <img src="./static/gifs/poses.gif" alt="动图" width="950">
+        <h2 class="title is-4">Comparisons with SOTAs</h2>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="./static/gifs/poses.gif" alt="Comparisons with SOTAs" style="max-width: 100%;">
         </div>
 
-        <div>
-          <h2 class="content has-text-justified" style="color: white; width: 100%; max-width: 950px; position: relative; left: 50%; transform: translateX(-50%);">
-            We demonstrate the controllability of our method across a variety of weak human pose scenarios. 
-            The results show that our framework effectively 
-            adapts to diverse poses while maintaining coherent object interactions and consistent appearance.
-          </h2>
+        <div class="content has-text-justified" style="max-width: 950px; margin: 1rem auto 0;">
+          <p>We demonstrate the controllability of our method across a variety of weak human pose scenarios. The results show that our framework effectively adapts to diverse poses while maintaining coherent object interactions and consistent appearance.</p>
         </div>
       </div>
     </div>
@@ -368,17 +346,13 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-4" style="color: white;">Influence of Agents</h2>
-        <div style="display: flex; align-items: center;">
-          <img src="./static/gifs/text.gif" alt="动图" width="950">
+        <h2 class="title is-4">Influence of Agents</h2>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="./static/gifs/text.gif" alt="Influence of Agents" style="max-width: 100%;">
         </div>
 
-        <div>
-          <h2 class="content has-text-justified" style="color: white; width: 100%; max-width: 950px; position: relative; left: 50%; transform: translateX(-50%);">
-            We explore the impact of combining weak pose guidance with text-based control.
-            The results demonstrate that our method can effectively integrate minimal pose 
-            information with textual semantics to generate coherent and semantically aligned motions.
-          </h2>
+        <div class="content has-text-justified" style="max-width: 950px; margin: 1rem auto 0;">
+          <p>We explore the impact of combining weak pose guidance with text-based control. The results demonstrate that our method can effectively integrate minimal pose information with textual semantics to generate coherent and semantically aligned motions.</p>
         </div>
       </div>
     </div>
@@ -500,22 +474,16 @@
 
 
 <!-- Video carousel -->
-<section class="hero is-small">
+<section class="hero is-small section">
   <div class="hero-body">
     <div class="container">
       <div class="has-text-centered">
-        <h2 class="title is-4" style="color: white;">
-          Full body human-object interaction results  
-
+        <h2 class="title is-4">
+          Full body human-object interaction results
         </h2>
       </div>
 
-      <div style="height: 20px;"></div>
-
-      <p style="color: white;">
-      </p>
-
-      <div style="height: 20px;"></div>
+      <div style="height: 24px;"></div>
 
 
       <div id="results-carousel" class="carousel results-carousel">
@@ -730,30 +698,16 @@
   </div>
 </section> -->
 
-<section class="demo5-section">
+<section class="section demo5-section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
-
       <div class="column is-full">
-
-        <!-- 居中 -->
         <div class="has-text-centered">
-          <h2 class="title is-4" style="color: white;">
+          <h2 class="title is-4">
             Multiple actions results
-
           </h2>
         </div>
-
-        <!-- 加个间距 -->
-        <div style="height: 20px;"></div>
-
-        <p style="color: white;">
-          <!-- We find that the temporal attention maps determine the generated video motions. By switching the temporal attention maps between the two videos in the first row, we
-          have the results in the second row, whose videos motions are totally swithed. -->
-        </p>
-
-        <!-- 加个间距 -->
-        <div style="height: 20px;"></div>
+        <div style="height: 24px;"></div>
 
         <style class="video-style2">
           .videos-container {
@@ -769,9 +723,9 @@
           }
 
           .video-item video {
-            width: 25%;
+            width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: inherit;
             background-color: #000;
           }
         </style>
@@ -806,30 +760,20 @@
 </section>
 
 
-<section class="demo6-section">
+<section class="section demo6-section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
-
       <div class="column is-full">
-
-        <!-- 居中 -->
         <div class="has-text-centered">
-          <h2 class="title is-4" style="color: white;">
+          <h2 class="title is-4">
             Wearing results
           </h2>
         </div>
-
-        <!-- 加个间距 -->
-        <div style="height: 20px;"></div>
-
-        <p style="color: white;">
-          We provide an interactive web demo that allows users to intuitively define human-object interactions
-           by manually dragging the human pose and object position. This interactive tool grants the model adaptive
-            freedom to resolve ambiguities, bridging the gap between artistic intent and generative feasibility.
+        <div style="height: 16px;"></div>
+        <p class="content has-text-justified" style="max-width: 800px; margin: 0 auto;">
+          We provide an interactive web demo that allows users to intuitively define human-object interactions by manually dragging the human pose and object position. This interactive tool grants the model adaptive freedom to resolve ambiguities, bridging the gap between artistic intent and generative feasibility.
         </p>
-
-        <!-- 加个间距 -->
-        <div style="height: 20px;"></div>
+        <div style="height: 24px;"></div>
 
         <style class="video-style3">
           .videos-container {
